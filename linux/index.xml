@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Phenix66 - GitHub Pages</title><link>https://phenix66.github.io/linux/index.html</link><description>Recent content in Linux on Phenix66 - GitHub Pages</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 22 Jan 2024 20:17:30 -0500</lastBuildDate><atom:link href="https://phenix66.github.io/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Basics</title><link>https://phenix66.github.io/linux/basics/index.html</link><pubDate>Mon, 22 Jan 2024 20:17:30 -0500</pubDate><guid>https://phenix66.github.io/linux/basics/index.html</guid><description>Boot Process POST Bootloader GRUB: Stage 1 # Loads stage 1.5 Stage 1.5 # Provides filesystem support, loads stage 2 Stage 2 # Contains the bulk of the bootloader, allows users to select kernel and kernel boot options. Loads kernel into RAM Solaris (pre-10 1/06) mboot pboot bootblk Kernel Init initrd or initramfs Provides temp filesystem required to load kernel modules and drivers User Space Init SysV Serial, starts processes one after the other When first booting up, kill scripts will generally not be ran init (PID 1) # Ancestor of all other processes /etc/inittab Defines default run level Tells the system what to do when rebooted or run level is changed Red Hat: /etc/rc.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Phenix66 - GitHub Pages</title>
+    <link>https://phenix66.github.io/linux/index.html</link>
+    <description>Recent content in Linux on Phenix66 - GitHub Pages</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jan 2024 20:17:30 -0500</lastBuildDate>
+    <atom:link href="https://phenix66.github.io/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basics</title>
+      <link>https://phenix66.github.io/linux/basics/index.html</link>
+      <pubDate>Mon, 22 Jan 2024 20:17:30 -0500</pubDate>
+      <guid>https://phenix66.github.io/linux/basics/index.html</guid>
+      <description>Boot Process POST Bootloader GRUB: Stage 1 # Loads stage 1.5 Stage 1.5 # Provides filesystem support, loads stage 2 Stage 2 # Contains the bulk of the bootloader, allows users to select kernel and kernel boot options. Loads kernel into RAM Solaris (pre-10 1/06) mboot pboot bootblk Kernel Init initrd or initramfs Provides temp filesystem required to load kernel modules and drivers User Space Init SysV Serial, starts processes one after the other When first booting up, kill scripts will generally not be ran init (PID 1) # Ancestor of all other processes /etc/inittab Defines default run level Tells the system what to do when rebooted or run level is changed Red Hat: /etc/rc.</description>
+    </item>
+  </channel>
+</rss>
