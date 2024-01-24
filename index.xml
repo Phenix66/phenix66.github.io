@@ -6,14 +6,31 @@
     <description>Recent content in Phenix66 on Phenix66 - GitHub Pages</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jan 2024 20:17:30 -0500</lastBuildDate>
     <atom:link href="https://phenix66.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
       <link>https://phenix66.github.io/linux/index.html</link>
-      <pubDate>Mon, 22 Jan 2024 20:17:30 -0500</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://phenix66.github.io/linux/index.html</guid>
-      <description>9001 times better than Windows.</description>
+      <description>9001 times better than Windows.
+Misc Random reference I saved for some reason, IDK I don&amp;rsquo;t use VIM: http://vimregex.com/
+Fix perl locale message update-locale LC_CTYPE=en_US.UTF-8
+Show current shell ps -p $$
+Removing a Git submodule git submodule deinit &amp;lt;path_to_submodule&amp;gt; git rm &amp;lt;path_to_submodule&amp;gt; git commit-m &amp;#34;Removed submodule &amp;#34; rm -rf .</description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>https://phenix66.github.io/security/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/security/index.html</guid>
+      <description>Be proactive instead of reactionary</description>
+    </item>
+    <item>
+      <title>Cyber Operations</title>
+      <link>https://phenix66.github.io/ops/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/ops/index.html</guid>
+      <description>You got the pen-testing agreement in writing I hope.</description>
     </item>
   </channel>
 </rss>

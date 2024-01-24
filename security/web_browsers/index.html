@@ -8,15 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Phenix66 :: Phenix66 - GitHub Pages">
+    <meta name="twitter:title" content="Web Browser Security :: Phenix66 - GitHub Pages">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="Phenix66 :: Phenix66 - GitHub Pages">
+    <meta property="og:title" content="Web Browser Security :: Phenix66 - GitHub Pages">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://phenix66.github.io/index.html">
+    <meta property="og:url" content="https://phenix66.github.io/security/web_browsers/index.html">
     <meta property="og:site_name" content="Phenix66 - GitHub Pages">
-    <title>Phenix66 :: Phenix66 - GitHub Pages</title>
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Phenix66 :: Phenix66 - GitHub Pages">
+    <title>Web Browser Security :: Phenix66 - GitHub Pages</title>
+    <link href="/security/web_browsers/index.xml" rel="alternate" type="application/rss+xml" title="Web Browser Security :: Phenix66 - GitHub Pages">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1706065732" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1706065732" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1706065732" rel="stylesheet">
@@ -50,7 +50,7 @@
       window.variants && variants.init( [ 'auto' ] );
     </script>
   </head>
-  <body class="mobile-support html" data-url="/index.html">
+  <body class="mobile-support html" data-url="/security/web_browsers/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -67,22 +67,35 @@
                 <i class="fa-fw fas fa-list-alt"></i>
               </button>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
+                <div class="topbar-content-wrapper"><nav class="TableOfContents">
+  <ul>
+    <li><a href="#internationalized-domain-names-idns">Internationalized Domain Names (IDNs)</a></li>
+    <li><a href="#pastejacking">Pastejacking</a></li>
+    <li><a href="#webrtc-leaks">WebRTC Leaks</a></li>
+    <li><a href="#adding-ca-certificates">Adding CA Certificates</a>
+      <ul>
+        <li><a href="#nssdb">NSSDB</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
                 </div>
               </div>
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Phenix66</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Phenix66</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/security/index.html"><span itemprop="name">Cybersecurity</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Web Browser Security</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-              <span class="topbar-control">
+              <a class="topbar-control" href="/security/malware/index.html" title="Malware (🡐)">
                 <i class="fa-fw fas fa-chevron-left"></i>
-              </span>
+              </a>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-              <a class="topbar-control" href="/linux/index.html" title="Linux (🡒)">
+              <a class="topbar-control" href="/ops/index.html" title="Cyber Operations (🡒)">
                 <i class="fa-fw fas fa-chevron-right"></i>
               </a>
             </div>
@@ -101,18 +114,65 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <article class="home">
+          <article class="default">
             <header class="headline">
             </header>
-<h1 id="phenix66">Phenix66</h1>
+<h1 id="web-browser-security">Web Browser Security</h1>
 
-<p>A good portion of this site, if not all of it at the time you are reading this, is just me
-attempting to dump my notes that have moved from one note taking application to another
-over the years into a more permanent location. If something doesn&rsquo;t make sense, well
-it might not to me anymore either!</p>
-
+<h2 id="internationalized-domain-names-idns">Internationalized Domain Names (IDNs)</h2>
+<p>What is it: Domain names can use international characters that look like other English characters. Used commonly on phishing
+sites to further trick a user into thinking they are on a legitimate site. Displaying all domains in their &ldquo;punycode&rdquo; equivalents
+however prevents this entirely.</p>
+<p>In-depth reads:
+<a href="https://krebsonsecurity.com/2018/03/look-alike-domains-and-visual-confusion/" target="_blank">https://krebsonsecurity.com/2018/03/look-alike-domains-and-visual-confusion/</a></p>
+<p>Browsers that show punycode by default:
+Chrome
+Safari
+Internet Explorer
+Edge</p>
+<p>Mozilla Firefox:</p>
+<ol>
+<li>Navigate to &ldquo;about:config&rdquo;</li>
+<li>Set &ldquo;network.IDN_show_punycode&rdquo; to &ldquo;true&rdquo;</li>
+</ol>
+<h2 id="pastejacking">Pastejacking</h2>
+<p>What is it: Allows a website to copy custom text/code to the clipboard when the user copies something else from the site.
+Commonly used when the content being copied is intended to be pasted into a command window or text editor such as VIM
+that would support commands/macros.</p>
+<p>Good PoC website:
+<a href="https://securelayer7.net/lab/pastejacking.html" target="_blank">https://securelayer7.net/lab/pastejacking.html</a></p>
+<p>More in-depth read:
+<a href="https://nakedsecurity.sophos.com/2016/05/26/why-you-cant-trust-things-you-cut-and-paste-from-web-pages/" target="_blank">https://nakedsecurity.sophos.com/2016/05/26/why-you-cant-trust-things-you-cut-and-paste-from-web-pages/</a></p>
+<p>&ldquo;But I already use a script blocker?&rdquo;
+Doesn&rsquo;t seem to make a difference in my experience. Pastejacking relies on &ldquo;Clipboard events&rdquo; that can run without Javascript
+being enabled if it was placed in the CSS code. Please note, you SHOULD be running a script blocker, some pastejacking does
+occur in Javascript and therefore would not be prevented via these methods.</p>
+<p>Firefox:</p>
+<ol>
+<li>Navigate to &ldquo;about:config&rdquo;</li>
+<li>Set &ldquo;dom.event.clipboardevents.enabled&rdquo; to &ldquo;false&rdquo;</li>
+</ol>
+<p>IE:
+-Tested with IE 11.1066.14393.0 on Windows 10 and it inherently blocked the attempt. Way to go MS for actually getting something right!</p>
+<p>Chrome:
+-Requires extension, no known method of disabling clipboard events.
+-Right-to-Copy extension allows you copy ONLY what is selected, but requires you to right-click -&gt; Copy instead of using Ctrl+C shortcut</p>
+<h2 id="webrtc-leaks">WebRTC Leaks</h2>
+<p>What it is: WebRTC can leak your true IP address even when utilizing a VPN</p>
+<p>Firefox:</p>
+<ol>
+<li>Navigate to &ldquo;about:config&rdquo;</li>
+<li>Set &ldquo;media.peerconnection.enabled&rdquo; to &ldquo;false&rdquo;</li>
+</ol>
+<h2 id="adding-ca-certificates">Adding CA Certificates</h2>
+<h3 id="nssdb">NSSDB</h3>
+<p>The following commands can be used to add certificates to the store used by Chrome and
+other chromium derivitives, such as VSCode.</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>mkdir -p $HOME/.pki/nssdb
+certutil -d $HOME/.pki/nssdb -N --empty-password
+certutil -d $HOME/.pki/nssdb -A -t TC -n &#34;Descriptive comment&#34; -i /path/to/cert</code></pre></div>
             <footer class="footline">
             </footer>
           </article>
@@ -219,9 +279,9 @@ it might not to me anymore either!</p>
           <ul class="enlarge morespace collapsible-menu">
           <li data-nav-id="/linux/index.html" class=""><a class="padding" href="/linux/index.html">Linux</a><ul id="R-subsections-db801fcabe18fdefdb1b34d275e81669" class="morespace collapsible-menu">
           <li data-nav-id="/linux/basics/index.html" class=""><a class="padding" href="/linux/basics/index.html">Basics</a></li></ul></li>
-          <li data-nav-id="/security/index.html" class=""><a class="padding" href="/security/index.html">Cybersecurity</a><ul id="R-subsections-4e896db703975006e00bbc21e8553d62" class="morespace collapsible-menu">
+          <li data-nav-id="/security/index.html" class="parent "><a class="padding" href="/security/index.html">Cybersecurity</a><ul id="R-subsections-4e896db703975006e00bbc21e8553d62" class="morespace collapsible-menu">
           <li data-nav-id="/security/malware/index.html" class=""><a class="padding" href="/security/malware/index.html">Malware</a></li>
-          <li data-nav-id="/security/web_browsers/index.html" class=""><a class="padding" href="/security/web_browsers/index.html">Web Browser Security</a></li></ul></li>
+          <li data-nav-id="/security/web_browsers/index.html" class="active"><a class="padding" href="/security/web_browsers/index.html">Web Browser Security</a></li></ul></li>
           <li data-nav-id="/ops/index.html" class=""><a class="padding" href="/ops/index.html">Cyber Operations</a><ul id="R-subsections-40168e4333d9812ba417942e0e372d93" class="morespace collapsible-menu">
           <li data-nav-id="/ops/recon/index.html" class=""><a class="padding" href="/ops/recon/index.html">Reconnaissance</a></li>
           <li data-nav-id="/ops/exploitation/index.html" class=""><a class="padding" href="/ops/exploitation/index.html">Exploitation</a></li>

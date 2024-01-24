@@ -8,15 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Phenix66 :: Phenix66 - GitHub Pages">
+    <meta name="twitter:title" content="Redirection :: Phenix66 - GitHub Pages">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="Phenix66 :: Phenix66 - GitHub Pages">
+    <meta property="og:title" content="Redirection :: Phenix66 - GitHub Pages">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://phenix66.github.io/index.html">
+    <meta property="og:url" content="https://phenix66.github.io/ops/redirection/index.html">
     <meta property="og:site_name" content="Phenix66 - GitHub Pages">
-    <title>Phenix66 :: Phenix66 - GitHub Pages</title>
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Phenix66 :: Phenix66 - GitHub Pages">
+    <title>Redirection :: Phenix66 - GitHub Pages</title>
+    <link href="/ops/redirection/index.xml" rel="alternate" type="application/rss+xml" title="Redirection :: Phenix66 - GitHub Pages">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1706065732" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1706065732" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1706065732" rel="stylesheet">
@@ -50,7 +50,7 @@
       window.variants && variants.init( [ 'auto' ] );
     </script>
   </head>
-  <body class="mobile-support html" data-url="/index.html">
+  <body class="mobile-support html" data-url="/ops/redirection/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -67,22 +67,40 @@
                 <i class="fa-fw fas fa-list-alt"></i>
               </button>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
+                <div class="topbar-content-wrapper"><nav class="TableOfContents">
+  <ul>
+    <li><a href="#basics">Basics</a>
+      <ul>
+        <li><a href="#redirectors-vs-ssh-tunnels">Redirectors vs SSH tunnels</a></li>
+        <li><a href="#applications">Applications</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#no-packet-is-forwarded-to-destination">No packet is forwarded to destination</a></li>
+        <li><a href="#connection-to-destination-is-initiated-but-no-syn-ack-is-received">Connection to destination is initiated, but no SYN-ACK is received</a></li>
+        <li><a href="#connection-to-destination-is-initiated-but-syn-ack-is-not-forwarded-to-source">Connection to destination is initiated, but SYN-ACK is not forwarded to source</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
                 </div>
               </div>
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Phenix66</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Phenix66</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/ops/index.html"><span itemprop="name">Cyber Operations</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Redirection</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-              <span class="topbar-control">
+              <a class="topbar-control" href="/ops/tunneling/index.html" title="Tunneling (🡐)">
                 <i class="fa-fw fas fa-chevron-left"></i>
-              </span>
+              </a>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-              <a class="topbar-control" href="/linux/index.html" title="Linux (🡒)">
+              <a class="topbar-control" href="/ops/exfiltration/index.html" title="Exfiltration (🡒)">
                 <i class="fa-fw fas fa-chevron-right"></i>
               </a>
             </div>
@@ -101,17 +119,142 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <article class="home">
+          <article class="default">
             <header class="headline">
             </header>
-<h1 id="phenix66">Phenix66</h1>
+<h1 id="redirection">Redirection</h1>
 
-<p>A good portion of this site, if not all of it at the time you are reading this, is just me
-attempting to dump my notes that have moved from one note taking application to another
-over the years into a more permanent location. If something doesn&rsquo;t make sense, well
-it might not to me anymore either!</p>
+<h2 id="basics">Basics</h2>
+<h3 id="redirectors-vs-ssh-tunnels">Redirectors vs SSH tunnels</h3>
+<ul>
+<li>Advantages
+<ul>
+<li>Smaller executable size</li>
+<li>Can easily be deployed to systems that do not have SSH available</li>
+</ul>
+</li>
+<li>Disadvantages
+<ul>
+<li>Limited functionality</li>
+<li>No multiplexing</li>
+<li>Noiser</li>
+<li>Rewrites addressing info on packets instead re-encapsulating</li>
+</ul>
+</li>
+</ul>
+<h3 id="applications">Applications</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>fpipe</th>
+<th>socat</th>
+<th>portproxy</th>
+<th>iptables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redirect TCP</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Redirect UDP</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>Convert TCP &lt;&gt; UDP</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Redirect IPv4</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Redirect IPv6</td>
+<td></td>
+<td>X</td>
+<td>X</td>
+<td>* with ip6tables</td>
+</tr>
+<tr>
+<td>Convert IPv4 &lt;&gt; IPv6</td>
+<td></td>
+<td>X</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>Masks source IP address</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>No open socket on redirector</td>
+<td></td>
+<td></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td>Requires admin privileges</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<h4 id="socat">Socat</h4>
+<p>Supports TCP, UDP, ICMP, and RAW IP traffic</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>socat TCP-LISTEN:8080 TCP-CONNECT:&lt;ip&gt;:80</code></pre></div><h5 id="udp-forwarder-over-tcp-tunnel">UDP forwarder over TCP tunnel</h5>
+<div class="wrap-code highlight"><pre tabindex="0"><code>socat udp-listen:137 tcp-connect:127.0.0.1:1337
+socat tcp-listen:1337 udp-connect:198.18.30.12:137</code></pre></div><h5 id="generate-ssl-cert-for-https">Generate SSL cert for HTTPS</h5>
+<div class="wrap-code highlight"><pre tabindex="0"><code>openssl req -new -x509 -days 365 -nodes -out cert.pem -keyout cert.key
+socat OPENSSL-LISTEN:443,cert=/cert.pem -</code></pre></div><h4 id="fpipe">fpipe</h4>
+<div class="wrap-code highlight"><pre tabindex="0"><code>fpipe -l &lt;lport&gt; -r &lt;rport&gt; &lt;ip&gt;</code></pre></div><h4 id="portproxy">portproxy</h4>
+<p>Native option on Windows (you do not need to bring it)</p>
+<p>Only supports TCP</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>netsh interface portproxy show all
+netsh interface portproxy set v4tov4 listenaddress=&lt;ip&gt; listenport=&lt;port&gt; connectaddress=&lt;ip&gt; connectport=&lt;port&gt;
+netsh interface portproxy reset</code></pre></div><h4 id="iptables">IPtables</h4>
+<p>Native option on Linux (you do not need to bring it)</p>
+<p>Network forwarding must be enabled</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>echo “1” &gt; /proc/sys/net/ipv4/ip_forward</code></pre></div><p>Changes destination from redirector to target 2</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>iptables -t nat -A PREROUTING -p tcp --dport &lt;port&gt; -d &lt;redirector-ip&gt; -s &lt;tgt1-ip&gt; -j DNAT --to-destination &lt;tgt2-ip&gt;:&lt;port&gt;</code></pre></div><p>Changes source of the packet to the redirector&rsquo;s ip, masking the true source</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>iptables -t nat -A POSTROUTING -p tcp --dport &lt;port&gt; -d &lt;tgt2-ip&gt; -s &lt;tgt1-ip&gt; -j SNAT --to-source &lt;redirector-ip&gt;</code></pre></div><p>Redirect to SSH reverse tunnel listening on localhost (handy when ‘GatewayPorts’ is disabled in sshd_config)
+By default, IP forwarding will not forward traffic to localhost</p>
+<div class="wrap-code highlight"><pre tabindex="0"><code>echo “1” &gt; /proc/sys/net/ipv4/conf/all/route_localnet
+iptables -t nat -A PREROUTING -p tcp --dport &lt;port&gt; -d &lt;redirector-ip&gt; -s &lt;tgt1-ip&gt; -j DNAT --to-destination 127.0.0.1:&lt;SSH -R port&gt;</code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="no-packet-is-forwarded-to-destination">No packet is forwarded to destination</h3>
+<p>Problem: The iptables filter functionality must allow the redirected traffic
+Diagnosis: Check iptables filter statistics for a blocking rule/policy incrementing
+Solution: Add iptables filter rules allowing traffic</p>
+<p>Problem: The redirector must be configured to route IP packets
+Diagnosis: No iptables filter statistics will increment, check kernel parameters
+Solution: Update kernel parameters to allow routing</p>
+<h3 id="connection-to-destination-is-initiated-but-no-syn-ack-is-received">Connection to destination is initiated, but no SYN-ACK is received</h3>
+<p>Problem: Destination must be configured to route traffic to source traffic to source back through redirector, with no filtering in the path
+Solution: Add a SNAT rule in the POSTROUTING chain to change the source address from the originator to the redirector</p>
+<h3 id="connection-to-destination-is-initiated-but-syn-ack-is-not-forwarded-to-source">Connection to destination is initiated, but SYN-ACK is not forwarded to source</h3>
+<p>Problem: Redirector must have conntrack kernel module installed
+Solution: Add SNAT rule that undoes the DNAT rule for traffic returning to the source</p>
 
             <footer class="footline">
             </footer>
@@ -222,12 +365,12 @@ it might not to me anymore either!</p>
           <li data-nav-id="/security/index.html" class=""><a class="padding" href="/security/index.html">Cybersecurity</a><ul id="R-subsections-4e896db703975006e00bbc21e8553d62" class="morespace collapsible-menu">
           <li data-nav-id="/security/malware/index.html" class=""><a class="padding" href="/security/malware/index.html">Malware</a></li>
           <li data-nav-id="/security/web_browsers/index.html" class=""><a class="padding" href="/security/web_browsers/index.html">Web Browser Security</a></li></ul></li>
-          <li data-nav-id="/ops/index.html" class=""><a class="padding" href="/ops/index.html">Cyber Operations</a><ul id="R-subsections-40168e4333d9812ba417942e0e372d93" class="morespace collapsible-menu">
+          <li data-nav-id="/ops/index.html" class="parent "><a class="padding" href="/ops/index.html">Cyber Operations</a><ul id="R-subsections-40168e4333d9812ba417942e0e372d93" class="morespace collapsible-menu">
           <li data-nav-id="/ops/recon/index.html" class=""><a class="padding" href="/ops/recon/index.html">Reconnaissance</a></li>
           <li data-nav-id="/ops/exploitation/index.html" class=""><a class="padding" href="/ops/exploitation/index.html">Exploitation</a></li>
           <li data-nav-id="/ops/post_exploitation/index.html" class=""><a class="padding" href="/ops/post_exploitation/index.html">Post Exploitation</a></li>
           <li data-nav-id="/ops/tunneling/index.html" class=""><a class="padding" href="/ops/tunneling/index.html">Tunneling</a></li>
-          <li data-nav-id="/ops/redirection/index.html" class=""><a class="padding" href="/ops/redirection/index.html">Redirection</a></li>
+          <li data-nav-id="/ops/redirection/index.html" class="active"><a class="padding" href="/ops/redirection/index.html">Redirection</a></li>
           <li data-nav-id="/ops/exfiltration/index.html" class=""><a class="padding" href="/ops/exfiltration/index.html">Exfiltration</a></li></ul></li>
           </ul>
         </div>
