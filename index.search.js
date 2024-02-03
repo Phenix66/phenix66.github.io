@@ -16,6 +16,14 @@ var relearn_search_index = [
     "uri": "/linux/index.html"
   },
   {
+    "breadcrumb": "Phenix66 \u003e Linux",
+    "content": "Disabling the builtin Bluetooth adapter Almost every gaming motherboard comes with built in WiFi and BT now. The BT adapter almost always sucks too.\nFind the vender and model ID with lsusb $ lsusb \u003c... lines omitted ...\u003e Bus 001 Device 004: ID 0e8d:0616 MediaTek Inc. Wireless_Device \u003c... lines omitted ...\u003e Add a new file to /etc/udev/rules.d/ SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"0e8d\", ATTRS{idProduct}==\"0616\", ATTR{authorized}=\"0\"Remove snapd Flatpak is way better.\nRemove all existing snaps. The order is important as you cannot remove a snap that is a dependency of another installed snap. You also cannot remove multiple snaps in one command apparently. snap list snap remove --purge gnome-42-2204 snap remove --purge firefox snap remove --purge gtk-common-theme snap remove --purge core22 snap remove --purge bare snap remove --purge snapd Remove snapd sudo apt remove --autoremove snapd Add the following to /etc/apt/preferences.d/nosnap.pref to ensure snap doesn’t get revived by apt. Package: snapd Pin: release a=* Pin-Priority: -10 Install flatpak and profit ",
+    "description": "",
+    "tags": null,
+    "title": "My System Config",
+    "uri": "/linux/sysconfig/index.html"
+  },
+  {
     "breadcrumb": "Phenix66 \u003e Cyber Operations",
     "content": "Proxychains Greatly speeds up scanning\nhttps://www.hackwhackandsmack.com/?p=1021\nseq 128 255 | xargs -P 50 -I{} proxychains nmap -p 22 -sT -Pn --open -n -T4 --min-rate 1 --oG proxy_nmap --append-output 10.20.101.{}",
     "description": "",

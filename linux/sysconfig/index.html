@@ -8,15 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Basics :: Phenix66 - GitHub Pages">
+    <meta name="twitter:title" content="My System Config :: Phenix66 - GitHub Pages">
     <meta name="twitter:description" content="">
-    <meta property="og:title" content="Basics :: Phenix66 - GitHub Pages">
+    <meta property="og:title" content="My System Config :: Phenix66 - GitHub Pages">
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://phenix66.github.io/linux/basics/index.html">
+    <meta property="og:url" content="https://phenix66.github.io/linux/sysconfig/index.html">
     <meta property="og:site_name" content="Phenix66 - GitHub Pages">
-    <title>Basics :: Phenix66 - GitHub Pages</title>
-    <link href="/linux/basics/index.xml" rel="alternate" type="application/rss+xml" title="Basics :: Phenix66 - GitHub Pages">
+    <title>My System Config :: Phenix66 - GitHub Pages</title>
+    <link href="/linux/sysconfig/index.xml" rel="alternate" type="application/rss+xml" title="My System Config :: Phenix66 - GitHub Pages">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1706977503" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1706977503" rel="stylesheet"></noscript>
     <link href="/css/nucleus.css?1706977503" rel="stylesheet">
@@ -50,7 +50,7 @@
       window.variants && variants.init( [ 'auto' ] );
     </script>
   </head>
-  <body class="mobile-support html" data-url="/linux/basics/index.html">
+  <body class="mobile-support html" data-url="/linux/sysconfig/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -69,17 +69,8 @@
               <div class="topbar-content">
                 <div class="topbar-content-wrapper"><nav class="TableOfContents">
   <ul>
-    <li><a href="#boot-process">Boot Process</a></li>
-    <li><a href="#shells">Shells</a>
-      <ul>
-        <li><a href="#types">Types</a></li>
-        <li><a href="#profile-loading">Profile Loading</a></li>
-      </ul>
-    </li>
-    <li><a href="#login">Login</a></li>
-    <li><a href="#directories">Directories</a></li>
-    <li><a href="#filesystem-links">Filesystem Links</a></li>
-    <li><a href="#iptables">IPTables</a></li>
+    <li><a href="#disabling-the-builtin-bluetooth-adapter">Disabling the builtin Bluetooth adapter</a></li>
+    <li><a href="#remove-snapd">Remove snapd</a></li>
   </ul>
 </nav>
                 </div>
@@ -89,16 +80,16 @@
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Phenix66</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/linux/index.html"><span itemprop="name">Linux</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Basics</span><meta itemprop="position" content="3"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">My System Config</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-              <a class="topbar-control" href="/linux/index.html" title="Linux (🡐)">
+              <a class="topbar-control" href="/linux/basics/index.html" title="Basics (🡐)">
                 <i class="fa-fw fas fa-chevron-left"></i>
               </a>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show">
-              <a class="topbar-control" href="/linux/sysconfig/index.html" title="My System Config (🡒)">
+              <a class="topbar-control" href="/security/index.html" title="Cybersecurity (🡒)">
                 <i class="fa-fw fas fa-chevron-right"></i>
               </a>
             </div>
@@ -122,172 +113,45 @@
           <article class="default">
             <header class="headline">
             </header>
-<h1 id="basics">Basics</h1>
+<h1 id="my-system-config">My System Config</h1>
 
-<h2 id="boot-process">Boot Process</h2>
+<h2 id="disabling-the-builtin-bluetooth-adapter">Disabling the builtin Bluetooth adapter</h2>
+<p>Almost every gaming motherboard comes with built in WiFi and BT now. The BT
+adapter almost always sucks too.</p>
 <ol>
-<li>POST</li>
-<li>Bootloader
+<li>Find the vender and model ID with <code>lsusb</code></li>
+</ol>
+<div class="wrap-code highlight"><pre tabindex="0"><code>$ lsusb
+&lt;... lines omitted ...&gt;
+Bus 001 Device 004: ID 0e8d:0616 MediaTek Inc. Wireless_Device
+&lt;... lines omitted ...&gt;</code></pre></div><ol start="2">
+<li>Add a new file to <code>/etc/udev/rules.d/</code></li>
+</ol>
+<div class="wrap-code highlight"><pre tabindex="0"><code>SUBSYSTEM==&#34;usb&#34;, ATTRS{idVendor}==&#34;0e8d&#34;, ATTRS{idProduct}==&#34;0616&#34;, ATTR{authorized}=&#34;0&#34;</code></pre></div><h2 id="remove-snapd">Remove snapd</h2>
+<p>Flatpak is way better.</p>
 <ol>
-<li>GRUB:
-<ol>
-<li>Stage 1 # Loads stage 1.5</li>
-<li>Stage 1.5 # Provides filesystem support, loads stage 2</li>
-<li>Stage 2 # Contains the bulk of the bootloader, allows users to select kernel and kernel boot options. Loads kernel into RAM</li>
+<li>Remove all existing snaps. The order is important as you cannot remove a snap
+that is a dependency of another installed snap. You also cannot remove multiple
+snaps in one command apparently.</li>
 </ol>
-</li>
-<li>Solaris (pre-10 1/06)
-<ol>
-<li>mboot</li>
-<li>pboot</li>
-<li>bootblk</li>
+<div class="wrap-code highlight"><pre tabindex="0"><code>snap list
+snap remove --purge gnome-42-2204
+snap remove --purge firefox
+snap remove --purge gtk-common-theme
+snap remove --purge core22
+snap remove --purge bare
+snap remove --purge snapd</code></pre></div><ol start="2">
+<li>Remove snapd</li>
 </ol>
-</li>
+<div class="wrap-code highlight"><pre tabindex="0"><code>sudo apt remove --autoremove snapd</code></pre></div><ol start="3">
+<li>Add the following to <code>/etc/apt/preferences.d/nosnap.pref</code> to ensure snap
+doesn&rsquo;t get revived by apt.</li>
 </ol>
-</li>
-<li>Kernel Init
-<ol>
-<li>initrd or initramfs
-<ol>
-<li>Provides temp filesystem required to load kernel modules and drivers</li>
+<div class="wrap-code highlight"><pre tabindex="0"><code>Package: snapd
+Pin: release a=*
+Pin-Priority: -10</code></pre></div><ol start="4">
+<li>Install flatpak and profit</li>
 </ol>
-</li>
-</ol>
-</li>
-<li>User Space Init
-<ol>
-<li>SysV
-<ol>
-<li>Serial, starts processes one after the other</li>
-<li>When first booting up, kill scripts will generally not be ran</li>
-<li>init (PID 1) # Ancestor of all other processes</li>
-<li>/etc/inittab
-<ol>
-<li>Defines default run level</li>
-<li>Tells the system what to do when rebooted or run level is changed</li>
-</ol>
-</li>
-<li>Red Hat:
-<ol>
-<li>/etc/rc.d/
-<ul>
-<li>Startup scripts</li>
-</ul>
-</li>
-<li>/etc/rc.d/init.d/
-<ul>
-<li>Contains actual service control scripts</li>
-</ul>
-</li>
-<li>/etc/rc.d/rc.sysinit
-<ul>
-<li>Config to be run before other services. Time zone, hostname, etc</li>
-</ul>
-</li>
-<li>/etc/rc.d/rc.local
-<ul>
-<li>Config to be run after services are up. Typically system specific such as VPNs</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>Debian:
-<ol>
-<li>/etc/rc&lt;#&gt;.d/</li>
-<li>/etc/init.d/rcS
-<ul>
-<li>equivalent to rc.sysinit</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>upstart
-<ol>
-<li>Can run steps in parallel</li>
-<li>Init reads .conf files in /etc/init</li>
-<li>One of those scripts runs /etc/rc.d/rc script for desired runlevel. This provides the SysV backwards compatibility</li>
-</ol>
-</li>
-<li>systemd
-<ol>
-<li>Can run steps in parallel</li>
-<li>/usr/lib/systemd/systemd (PID 1) # May also be /sbin/init (symbolic link to systemd)</li>
-<li>Units
-<ul>
-<li>Service # Daemons</li>
-<li>Socket # IPC and network</li>
-<li>Target # Similar to runlevel, groups units together during boot up</li>
-<li>Located in /etc/systemd/system and /usr/lib/systemd/system</li>
-<li>Units in /etc take precedence</li>
-</ul>
-</li>
-<li>States
-<ul>
-<li>Load
-<ul>
-<li>Did it successfully read the unit&rsquo;s configuration file?</li>
-</ul>
-</li>
-<li>Active
-<ul>
-<li>Is it running?</li>
-</ul>
-</li>
-<li>Sub
-<ul>
-<li>Low-level unit activation state</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>/etc/systemd/system/default.target
-<ul>
-<li>Symbolic link to default target</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>SMF # Solaris 10+
-<ol>
-<li>Can run steps in parallel</li>
-<li>Milestones
-<ul>
-<li>Replaces runlevels</li>
-</ul>
-</li>
-<li>/etc/svc/repository.db
-<ul>
-<li>Config database</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="shells">Shells</h2>
-<h3 id="types">Types</h3>
-<p><a href="https://phoenixnap.com/kb/linux-shells" target="_blank">https://phoenixnap.com/kb/linux-shells</a></p>
-<p><a href="https://www.freecodecamp.org/news/linux-shells-explained/" target="_blank">https://www.freecodecamp.org/news/linux-shells-explained/</a></p>
-<h3 id="profile-loading">Profile Loading</h3>
-<p><a href="https://youngstone89.medium.com/unix-introduction-bash-startup-files-loading-order-562543ac12e9" target="_blank">https://youngstone89.medium.com/unix-introduction-bash-startup-files-loading-order-562543ac12e9</a></p>
-<p><a href="https://access.redhat.com/solutions/452073" target="_blank">https://access.redhat.com/solutions/452073</a></p>
-<p><a href="#R-image-7ee9d97777f216e0d8b85642ed716702" class="lightbox-link"><img src="/images/shell_profiles.png" alt="Shell profile related files" class="figure-image noborder lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-7ee9d97777f216e0d8b85642ed716702"><img src="/images/shell_profiles.png" alt="Shell profile related files" class="lightbox-image noborder lightbox noshadow" loading="lazy"></a></p>
-<h2 id="login">Login</h2>
-<p><a href="#R-image-947793601301eb49a670967674675358" class="lightbox-link"><img src="/images/console_login_flow.png" alt="Image showing the Linux login flow" class="figure-image noborder lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-947793601301eb49a670967674675358"><img src="/images/console_login_flow.png" alt="Image showing the Linux login flow" class="lightbox-image noborder lightbox noshadow" loading="lazy"></a></p>
-<h2 id="directories">Directories</h2>
-<p><a href="#R-image-6339e22bb298df25c35a804463e87b3e" class="lightbox-link"><img src="/images/important_dirs.png" alt="Image detailing important directories in Linux" class="figure-image noborder lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-6339e22bb298df25c35a804463e87b3e"><img src="/images/important_dirs.png" alt="Image detailing important directories in Linux" class="lightbox-image noborder lightbox noshadow" loading="lazy"></a></p>
-<h2 id="filesystem-links">Filesystem Links</h2>
-<p><a href="#R-image-ded77d7ebc3cadd78f65b8fba3a16c55" class="lightbox-link"><img src="/images/hard_and_soft_links.png" alt="Image depicting differences between hard and soft links" class="figure-image noborder lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-ded77d7ebc3cadd78f65b8fba3a16c55"><img src="/images/hard_and_soft_links.png" alt="Image depicting differences between hard and soft links" class="lightbox-image noborder lightbox noshadow" loading="lazy"></a></p>
-<h2 id="iptables">IPTables</h2>
-<p><a href="#R-image-c03149fdfa49706eeb5fd590b8055c02" class="lightbox-link"><img src="/images/iptables_flowchart.jpg" alt="Flowchart depicting the packet process flow of iptables" class="figure-image noborder lightbox noshadow" style="height: auto; width: auto;" loading="lazy"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-c03149fdfa49706eeb5fd590b8055c02"><img src="/images/iptables_flowchart.jpg" alt="Flowchart depicting the packet process flow of iptables" class="lightbox-image noborder lightbox noshadow" loading="lazy"></a></p>
 
             <footer class="footline">
             </footer>
@@ -394,8 +258,8 @@
         <div id="R-topics">
           <ul class="enlarge morespace collapsible-menu">
           <li data-nav-id="/linux/index.html" class="parent "><a class="padding" href="/linux/index.html">Linux</a><ul id="R-subsections-db801fcabe18fdefdb1b34d275e81669" class="morespace collapsible-menu">
-          <li data-nav-id="/linux/basics/index.html" class="active"><a class="padding" href="/linux/basics/index.html">Basics</a></li>
-          <li data-nav-id="/linux/sysconfig/index.html" class=""><a class="padding" href="/linux/sysconfig/index.html">My System Config</a></li></ul></li>
+          <li data-nav-id="/linux/basics/index.html" class=""><a class="padding" href="/linux/basics/index.html">Basics</a></li>
+          <li data-nav-id="/linux/sysconfig/index.html" class="active"><a class="padding" href="/linux/sysconfig/index.html">My System Config</a></li></ul></li>
           <li data-nav-id="/security/index.html" class=""><a class="padding" href="/security/index.html">Cybersecurity</a><ul id="R-subsections-4e896db703975006e00bbc21e8553d62" class="morespace collapsible-menu">
           <li data-nav-id="/security/malware/index.html" class=""><a class="padding" href="/security/malware/index.html">Malware</a></li>
           <li data-nav-id="/security/web_browsers/index.html" class=""><a class="padding" href="/security/web_browsers/index.html">Web Browser Security</a></li></ul></li>
