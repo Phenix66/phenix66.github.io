@@ -32,6 +32,14 @@ var relearn_search_index = [
     "uri": "/ops/recon/index.html"
   },
   {
+    "breadcrumb": "Phenix66 \u003e Linux",
+    "content": "Update drive name and partition number as appropriate.\ngrowpart /dev/sda 3 pvresize /dev/sda3 lvresize -l +100%FREE --resizefs ubuntu-vg/ubuntu-lv",
+    "description": "",
+    "tags": null,
+    "title": "Ubuntu - Grow Partition",
+    "uri": "/linux/ubuntu/index.html"
+  },
+  {
     "breadcrumb": "Phenix66",
     "content": "Be proactive instead of reactionary\n",
     "description": "",

@@ -23,5 +23,13 @@
 Find the vender and model ID with lsusb $ lsusb &amp;lt;... lines omitted ...&amp;gt; Bus 001 Device 004: ID 0e8d:0616 MediaTek Inc. Wireless_Device &amp;lt;... lines omitted ...&amp;gt; Add a new file to /etc/udev/rules.d/ SUBSYSTEM==&amp;#34;usb&amp;#34;, ATTRS{idVendor}==&amp;#34;0e8d&amp;#34;, ATTRS{idProduct}==&amp;#34;0616&amp;#34;, ATTR{authorized}=&amp;#34;0&amp;#34;Remove snapd Flatpak is way better.
 Remove all existing snaps. The order is important as you cannot remove a snap that is a dependency of another installed snap.</description>
     </item>
+    <item>
+      <title>Ubuntu - Grow Partition</title>
+      <link>https://phenix66.github.io/linux/ubuntu/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/linux/ubuntu/index.html</guid>
+      <description>Update drive name and partition number as appropriate.
+growpart /dev/sda 3 pvresize /dev/sda3 lvresize -l +100%FREE --resizefs ubuntu-vg/ubuntu-lv</description>
+    </item>
   </channel>
 </rss>
