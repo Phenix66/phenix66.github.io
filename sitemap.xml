@@ -7,6 +7,9 @@
     <loc>https://phenix66.github.io/linux/index.html</loc>
   </url>
   <url>
+    <loc>https://phenix66.github.io/privacy/firefox/index.html</loc>
+  </url>
+  <url>
     <loc>https://phenix66.github.io/linux/sysconfig/index.html</loc>
   </url>
   <url>
@@ -22,10 +25,16 @@
     <loc>https://phenix66.github.io/ops/exploitation/index.html</loc>
   </url>
   <url>
+    <loc>https://phenix66.github.io/privacy/chrome/index.html</loc>
+  </url>
+  <url>
     <loc>https://phenix66.github.io/ops/index.html</loc>
   </url>
   <url>
     <loc>https://phenix66.github.io/ops/post_exploitation/index.html</loc>
+  </url>
+  <url>
+    <loc>https://phenix66.github.io/privacy/index.html</loc>
   </url>
   <url>
     <loc>https://phenix66.github.io/ops/tunneling/index.html</loc>

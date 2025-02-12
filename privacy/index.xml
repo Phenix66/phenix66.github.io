@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Privacy on Phenix66 - GitHub Pages</title>
+    <link>https://phenix66.github.io/privacy/index.html</link>
+    <description>Recent content in Privacy on Phenix66 - GitHub Pages</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://phenix66.github.io/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mozilla Firefox</title>
+      <link>https://phenix66.github.io/privacy/firefox/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/privacy/firefox/index.html</guid>
+      <description>Remove AI overview and other junk from Google search results While it&amp;rsquo;s great to just say &amp;ldquo;switch to DuckDuckGo&amp;rdquo;, Google sadly provides the best results and in my experience, enables you to be much more productive in your searches.
+Android Navigate to Settings -&amp;gt; Search -&amp;gt; Default search engine
+Click &amp;ldquo;Add search engine&amp;rdquo;
+Input the following values:
+Name: Google UDM14 Search string URL: https://google.com/search?q=%s&amp;udm=14 Search suggestions API URL: https://suggestqueries.google.com/complete/search?client=firefox&amp;q=%s Desktop Go to about:config</description>
+    </item>
+    <item>
+      <title>Google Chrome</title>
+      <link>https://phenix66.github.io/privacy/chrome/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://phenix66.github.io/privacy/chrome/index.html</guid>
+      <description>Why are you even here? I hope you&amp;rsquo;re at least using Chromium instead of the full Google Chrome.</description>
+    </item>
+  </channel>
+</rss>

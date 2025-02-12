@@ -16,6 +16,14 @@ var relearn_search_index = [
     "uri": "/linux/index.html"
   },
   {
+    "breadcrumb": "Phenix66 \u003e Privacy",
+    "content": "Remove AI overview and other junk from Google search results While it’s great to just say “switch to DuckDuckGo”, Google sadly provides the best results and in my experience, enables you to be much more productive in your searches.\nAndroid Navigate to Settings -\u003e Search -\u003e Default search engine\nClick “Add search engine”\nInput the following values:\nName: Google UDM14 Search string URL: https://google.com/search?q=%s\u0026udm=14 Search suggestions API URL: https://suggestqueries.google.com/complete/search?client=firefox\u0026q=%s Desktop Go to about:config\nAdd browser.urlbar.update2.engineAliasRefresh (if it does not exist) with value true\nReload Firefox\nNavigate to Settings -\u003e Search\nClick “Add” underneath the “Search Shortcuts” table\nInput the following values:\nSearch engine name: Google UDM14 Engine URL: https://google.com/search?q=%s\u0026udm=14 Alias: @udm14 Update the “Default Search Engine” setting at the top\nAlternatively, you can use this extension https://addons.mozilla.org/en-US/firefox/addon/udm14/ but I try to keep the number of extensions I install down to a minimum.\n",
+    "description": "",
+    "tags": null,
+    "title": "Mozilla Firefox",
+    "uri": "/privacy/firefox/index.html"
+  },
+  {
     "breadcrumb": "Phenix66 \u003e Linux",
     "content": "Disabling the builtin Bluetooth adapter Almost every gaming motherboard comes with built in WiFi and BT now. The BT adapter almost always sucks too.\nFind the vender and model ID with lsusb $ lsusb \u003c... lines omitted ...\u003e Bus 001 Device 004: ID 0e8d:0616 MediaTek Inc. Wireless_Device \u003c... lines omitted ...\u003e Add a new file to /etc/udev/rules.d/ SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"0e8d\", ATTRS{idProduct}==\"0616\", ATTR{authorized}=\"0\"Remove snapd Flatpak is way better.\nRemove all existing snaps. The order is important as you cannot remove a snap that is a dependency of another installed snap. You also cannot remove multiple snaps in one command apparently. snap list snap remove --purge gnome-42-2204 snap remove --purge firefox snap remove --purge gtk-common-theme snap remove --purge core22 snap remove --purge bare snap remove --purge snapd Remove snapd sudo apt remove --autoremove snapd Add the following to /etc/apt/preferences.d/nosnap.pref to ensure snap doesn’t get revived by apt. Package: snapd Pin: release a=* Pin-Priority: -10 Install flatpak and profit Fix Flatpak Firefox fonts Add the following to ~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf\n\u003c?xml version='1.0'?\u003e \u003c!DOCTYPE fontconfig SYSTEM 'fonts.dtd'\u003e \u003cfontconfig\u003e \u003c!-- Disable bitmap fonts. --\u003e \u003cselectfont\u003e \u003crejectfont\u003e \u003cpattern\u003e \u003cpatelt name=\"scalable\"\u003e \u003cbool\u003efalse\u003c/bool\u003e \u003c/patelt\u003e \u003c/pattern\u003e \u003c/rejectfont\u003e \u003c/selectfont\u003e \u003c/fontconfig\u003e",
     "description": "",
@@ -56,6 +64,14 @@ var relearn_search_index = [
     "uri": "/ops/exploitation/index.html"
   },
   {
+    "breadcrumb": "Phenix66 \u003e Privacy",
+    "content": "Why are you even here? I hope you’re at least using Chromium instead of the full Google Chrome.\n",
+    "description": "",
+    "tags": null,
+    "title": "Google Chrome",
+    "uri": "/privacy/chrome/index.html"
+  },
+  {
     "breadcrumb": "Phenix66",
     "content": "You got the pen-testing agreement in writing I hope.\n",
     "description": "",
@@ -70,6 +86,14 @@ var relearn_search_index = [
     "tags": null,
     "title": "Post Exploitation",
     "uri": "/ops/post_exploitation/index.html"
+  },
+  {
+    "breadcrumb": "Phenix66",
+    "content": "Do what you can to maintain control of your data\n",
+    "description": "",
+    "tags": null,
+    "title": "Privacy",
+    "uri": "/privacy/index.html"
   },
   {
     "breadcrumb": "Phenix66 \u003e Cyber Operations",
